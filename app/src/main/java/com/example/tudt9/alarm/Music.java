@@ -22,18 +22,17 @@ public class Music extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        Log.e("Toi trong Music","Xin chao");
 
         String nhankey = intent.getExtras().getString("extra");
-        Log.e("Music Nhan Key",nhankey);
 
         if(nhankey.equals("on")){
             id = 1;
         }else if(nhankey.equals("off")){
             id = 0;
         }
+
         if(id == 1){
-            mediaPlayer = MediaPlayer.create(this,R.raw.Dung_Nhu_Thoi_Quen_JayKii_Sara_Luu);
+            mediaPlayer = MediaPlayer.create(this,R.raw.xylophone);
             mediaPlayer.start();
             id = 0;
         }else if (id == 0){
@@ -41,8 +40,6 @@ public class Music extends Service {
             mediaPlayer.reset();
         }
 
-        mediaPlayer = MediaPlayer.create(this,R.raw.Dung_Nhu_Thoi_Quen_JayKii_Sara_Luu);
-        mediaPlayer.start();
         return START_NOT_STICKY;
     }
 }
